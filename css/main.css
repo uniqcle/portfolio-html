@@ -98,8 +98,10 @@ html, body{
 
 .nav-list {
 	display: flex; 
+	flex-wrap: wrap; 
 	align-items: center; 
 	column-gap: 40px; 
+	row-gap: 10px; 
 	font-size: 16px; 
 	font-weight: 500; 
 	font-family: 'Poppins', sans-serif; 
@@ -235,6 +237,7 @@ html, body{
 .projects {
 	display: flex; 
 	flex-wrap: wrap; 
+	justify-content: center; 
 	column-gap: 30px; 
 	row-gap: 30px; 
 }
@@ -351,3 +354,113 @@ html, body{
 }
 
 
+
+
+
+/* Mobile Nav */ 
+
+.mobile-nav__button{
+    display: none; 
+    cursor: pointer; 
+}
+
+.nav-button__icon{
+    position: relative; 
+    display: block; 
+    background-color: #fff; 
+    width: 42px; 
+    height: 6px; 
+    border: none; 
+}
+
+.nav-button__icon::before{
+    position: absolute; 
+    top: -10px; 
+    left: 0px; 
+    content: ""; 
+    display: block; 
+    background-color: #fff; 
+    width: 42px; 
+    height: 6px; 
+    border: none; 
+}
+
+.nav-button__icon::after{
+    position: absolute; 
+    top: 10px; 
+    left: 0px; 
+    content: ""; 
+    display: block; 
+    background-color: #fff; 
+    width: 42px; 
+    height: 6px; 
+    border: none; 
+}
+
+.mobile-nav__button-close .nav-button__icon{
+    background-color: transparent; 
+}
+
+.mobile-nav__button-close .nav-button__icon::before{
+    transform: rotate(45deg); 
+    top: 0; 
+}
+
+.mobile-nav__button-close .nav-button__icon::after{
+    transform: rotate(-45deg); 
+    top: 0; 
+}
+
+
+.mobile-nav{
+	display: none; 
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    z-index: 8;
+    flex-direction: column; 
+    width: 320px; 
+    height: 100%; 
+
+    background-color: var(--black); 
+ 
+}
+
+.mobile-nav .nav-list{
+	display: flex; 
+	flex-direction: column; 
+	justify-content: center;
+	align-items: center; 
+	row-gap: 30px; 
+	height: 100%; 
+
+	font-size: 30px;
+}
+
+
+@media(max-width:620px){
+
+	.mobile-nav__button{
+        display: block; 
+        position: relative; 
+        z-index: 10; 
+    }
+
+    .mobile-nav{
+        display: none; 
+    }
+
+    .mobile-nav--active{
+        display: flex; 
+    }
+	
+	.nav-list{
+		display: none; 
+	}
+
+	.header{
+		min-height: 500px; 
+	}
+
+
+}
