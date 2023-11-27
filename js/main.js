@@ -25,9 +25,16 @@ let index = 0;
 function runString() {
   runningString.innerText = runningStringText.slice(0, index);
   index++;
-  //   if (index > runningStringText.length) {
-  //     index = 0;
-  //   }
 }
 
-setInterval(runString, 100);
+// if (index > runningStringText.length) {
+//   index = 0;
+// }
+
+runString();
+
+let intervalId = setInterval(runString, 100);
+
+setTimeout(() => {
+  clearInterval(intervalId);
+}, 7000);
