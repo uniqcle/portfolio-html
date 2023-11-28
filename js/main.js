@@ -18,6 +18,10 @@ mobileNav.addEventListener("click", function (e) {
   e.stopPropagation();
 });
 
+
+
+
+
 const runningString = document.querySelector("#runningString");
 const runningStringText = runningString.textContent;
 let index = 0;
@@ -27,10 +31,6 @@ function runString() {
   index++;
 }
 
-// if (index > runningStringText.length) {
-//   index = 0;
-// }
-
 runString();
 
 let intervalId = setInterval(runString, 100);
@@ -38,3 +38,9 @@ let intervalId = setInterval(runString, 100);
 setTimeout(() => {
   clearInterval(intervalId);
 }, 7000);
+
+const btnDarkMode = document.querySelector(".dark-mode-btn");
+
+btnDarkMode.onclick = function () {
+  btnDarkMode.classList.toggle("dark-mode-btn--active");
+};

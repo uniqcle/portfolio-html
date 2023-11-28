@@ -79,7 +79,7 @@ html, body{
 
 .nav-row{
 	display: flex; 
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center; 
 	column-gap: 30px; 
 	row-gap: 20px; 
@@ -90,6 +90,7 @@ html, body{
 	color: var(--header-text); 
 	font-size: 24px; 
 	font-family: 'Poppins', sans-serif; 
+	margin-right: auto; 
 }
 
 .logo strong{
@@ -102,6 +103,9 @@ html, body{
 	align-items: center; 
 	column-gap: 40px; 
 	row-gap: 10px; 
+
+	order: 1; 
+
 	font-size: 16px; 
 	font-weight: 500; 
 	font-family: 'Poppins', sans-serif; 
@@ -137,6 +141,8 @@ html, body{
 .dark-mode-btn {
 	position: relative; 
 
+	order: 2; 
+
 	display: flex;
 	justify-content: space-between; 
 
@@ -160,6 +166,8 @@ html, body{
 
 	border-radius: 50%; 
 	background-color: var(--white); 
+
+	transition: left 0.2s ease-in; 
 }
 
 .dark-mode-btn_icon {
@@ -167,7 +175,10 @@ html, body{
 	
 }
 
-
+.dark-mode-btn--active::before{
+	left: 26px; 
+	right: 1px; 
+}
 
 /* Header */ 
 .header {
@@ -455,6 +466,7 @@ html, body{
     top: 0; 
     right: 0; 
     z-index: 8;
+	order: 5; 
     flex-direction: column; 
     width: 320px; 
     height: 100%; 
@@ -476,20 +488,29 @@ html, body{
 
 
 @media(max-width:620px){
+	.dark-mode-btn{
+		order: 1; 
+	}
+
 
 	.mobile-nav__button{
         display: block; 
         position: relative; 
         z-index: 10; 
+				order: 2; 
     }
 
     .mobile-nav{
         display: none; 
+
     }
 
     .mobile-nav--active{
         display: flex; 
+ 
     }
+
+
 	
 	.nav-list{
 		display: none; 
@@ -500,4 +521,10 @@ html, body{
 	}
 
 
+}
+
+@media(max-width:380px){
+	.dark-mode-btn{
+		display: none; 
+	}
 }
