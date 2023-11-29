@@ -22,25 +22,10 @@ mobileNav.addEventListener("click", function (e) {
 
 
 
-const runningString = document.querySelector("#runningString");
-const runningStringText = runningString.textContent;
-let index = 0;
-
-function runString() {
-  runningString.innerText = runningStringText.slice(0, index);
-  index++;
-}
-
-runString();
-
-let intervalId = setInterval(runString, 100);
-
-setTimeout(() => {
-  clearInterval(intervalId);
-}, 7000);
-
 const btnDarkMode = document.querySelector(".dark-mode-btn");
 
 btnDarkMode.onclick = function () {
   btnDarkMode.classList.toggle("dark-mode-btn--active");
+  document.body.classList.toggle("dark");
+
 };
